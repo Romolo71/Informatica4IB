@@ -40,4 +40,17 @@ public class Track {
     public void setNext(Track next) {
         this.next = next;
     }
+
+    @Override
+    public String toString() {
+        return "Track{" +
+                "title='" + title + '\'' +
+                ", author='" + author + '\'' +
+                ", length=" + length +
+                '}';
+    }
+
+    public String getInfo() {
+        return "Track:" + title + " by " + author + "\n";
+    }
 }
