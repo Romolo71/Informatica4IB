@@ -28,4 +28,33 @@ public class Nodo<T> {
     public T getVal() {
         return val;
     }
+
+    public int compareTo(Nodo<T> obj){
+        String val1 = "" + this.val;
+        String val2 = "" + obj.getVal();
+
+        if(val1.compareTo(val2) > 0){
+            return 1;
+        }
+        else{
+            return -1;
+        }
+    }
+
+    public boolean isEqual(Nodo<T> obj){
+        String v1 = this.getVal() + "";
+        String v2 = obj.getVal() + "";
+
+        if(v1.compareTo(v2) == 0){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "" + val;
+    }
 }
