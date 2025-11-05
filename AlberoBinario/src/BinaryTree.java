@@ -1,4 +1,3 @@
-@SuppressWarnings("unchecked")
 public class BinaryTree<T> {
     Node<T> radice;
     int h;
@@ -56,5 +55,17 @@ public class BinaryTree<T> {
             viewInPostOrder(nodo.right);
             System.out.println(nodo);
         }
+    }
+
+    public boolean find(Node<T> n, T val){
+        if(n.getVal().equals(val)){
+            return true;
+        }
+        return find(n.getLeft(), val) || find(n.getRight(), val);
+    }
+
+    public int getLeafsCount(Node<T> n){
+        int leafs = 0;
+
     }
 }
