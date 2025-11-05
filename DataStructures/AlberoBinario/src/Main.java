@@ -104,7 +104,7 @@ public class Main {
         String value = scanner.nextLine();
 
         Node<String> newNode = new Node<>(value);
-        tree.addToTree(tree.radice, newNode);
+        tree.addToTree(tree.root, newNode);
 
         System.out.println(GREEN + "✅ Nodo '" + value + "' aggiunto all'albero!" + RESET);
     }
@@ -117,7 +117,7 @@ public class Main {
 
         System.out.println("\n" + PURPLE + BOLD + "📋 VISUALIZZAZIONE IN-ORDER (Sinistra-Radice-Destra)" + RESET);
         System.out.println(CYAN + "─────────────────────────────────────" + RESET);
-        tree.viewInOrder(tree.radice);
+        tree.viewInOrder(tree.root);
         System.out.println(CYAN + "─────────────────────────────────────" + RESET);
     }
 
@@ -129,7 +129,7 @@ public class Main {
 
         System.out.println("\n" + PURPLE + BOLD + "📋 VISUALIZZAZIONE PRE-ORDER (Radice-Sinistra-Destra)" + RESET);
         System.out.println(CYAN + "─────────────────────────────────────" + RESET);
-        tree.viewInPreOrder(tree.radice);
+        tree.viewInPreOrder(tree.root);
         System.out.println(CYAN + "─────────────────────────────────────" + RESET);
     }
 
@@ -141,7 +141,7 @@ public class Main {
 
         System.out.println("\n" + PURPLE + BOLD + "📋 VISUALIZZAZIONE POST-ORDER (Sinistra-Destra-Radice)" + RESET);
         System.out.println(CYAN + "─────────────────────────────────────" + RESET);
-        tree.viewInPostOrder(tree.radice);
+        tree.viewInPostOrder(tree.root);
         System.out.println(CYAN + "─────────────────────────────────────" + RESET);
     }
 
@@ -153,7 +153,7 @@ public class Main {
 
         System.out.println("\n" + PURPLE + BOLD + "ℹ️  INFORMAZIONI ALBERO" + RESET);
         System.out.println(CYAN + "─────────────────────────────────────" + RESET);
-        System.out.println(WHITE + "🌳 Radice: " + YELLOW + tree.radice.getVal() + RESET);
+        System.out.println(WHITE + "🌳 Radice: " + YELLOW + tree.root.getVal() + RESET);
         System.out.println(WHITE + "📏 Altezza (contatore): " + YELLOW + tree.h + RESET);
         System.out.println(CYAN + "─────────────────────────────────────" + RESET);
     }

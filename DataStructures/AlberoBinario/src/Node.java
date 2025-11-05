@@ -1,6 +1,6 @@
 public class Node<T>{
-    Node right;
-    Node left;
+    Node<T> right;
+    Node<T> left;
     T val;
 
     public Node(T val) {
@@ -9,11 +9,11 @@ public class Node<T>{
         this.val = val;
     }
 
-    public Node getRight() {
+    public Node<T> getRight() {
         return right;
     }
 
-    public Node getLeft() {
+    public Node<T> getLeft() {
         return left;
     }
 
