@@ -12,12 +12,13 @@ public class Main {
     public static final String CYAN = "\u001B[36m";
     public static final String WHITE = "\u001B[37m";
     public static final String BOLD = "\u001B[1m";
+    public static final String TEAL = "\\e[1;96m";
 
     private static Scanner scanner = new Scanner(System.in);
 
-    //══════════════════════════════════════════════════════════════
-    //                           MAIN
-    //══════════════════════════════════════════════════════════════
+    //╔════════════════════════════════════════════════════════════╗
+    //║                          MAIN                              ║
+    //╚════════════════════════════════════════════════════════════╝
     public static void main(String[] args) {
 
         boolean running = true;
@@ -25,6 +26,7 @@ public class Main {
         System.out.println(GREEN + BOLD + "\n╔════════════════════════════════════════╗");
         System.out.println("║      BENVENUTO NEL TESTER MERGE SORT   ║");
         System.out.println("╚════════════════════════════════════════╝" + RESET);
+
 
         while (running) {
             printMenu();
@@ -49,9 +51,9 @@ public class Main {
         scanner.close();
     }
 
-    //══════════════════════════════════════════════════════════════
-    //                         MENU
-    //══════════════════════════════════════════════════════════════
+    //╔════════════════════════════════════════════════════════════╗
+    //║                        MENU                                ║
+    //╚════════════════════════════════════════════════════════════╝
     private static void printMenu() {
         System.out.println("\n" + BLUE + "═══════════════════════════════════════");
         System.out.println(BOLD + "            🔢 MENU MERGE SORT" + RESET + BLUE);
@@ -75,28 +77,28 @@ public class Main {
         catch (Exception e) { return -1; }
     }
 
-    //══════════════════════════════════════════════════════════════
-    //                     LETTURA ARRAY
-    //══════════════════════════════════════════════════════════════
+    //╔════════════════════════════════════════════════════════════╗
+    //║                    LETTURA ARRAY                           ║
+    //╚════════════════════════════════════════════════════════════╝
     private static int[] readIntArray() {
-        System.out.print(WHITE + "Inserisci numeri separati da spazio: " + RESET);
-        String[] p = scanner.nextLine().split(" ");
+        System.out.print(WHITE + "Inserisci numeri separati da virgola e spazio: " + RESET);
+        String[] p = scanner.nextLine().split(", ");
         int[] arr = new int[p.length];
         for (int i = 0; i < p.length; i++) arr[i] = Integer.parseInt(p[i]);
         return arr;
     }
 
     private static double[] readDoubleArray() {
-        System.out.print(WHITE + "Inserisci numeri separati da spazio: " + RESET);
-        String[] p = scanner.nextLine().split(" ");
+        System.out.print(WHITE + "Inserisci numeri separati da virgola e spazio: " + RESET);
+        String[] p = scanner.nextLine().split(", ");
         double[] arr = new double[p.length];
         for (int i = 0; i < p.length; i++) arr[i] = Double.parseDouble(p[i]);
         return arr;
     }
 
     private static float[] readFloatArray() {
-        System.out.print(WHITE + "Inserisci numeri separati da spazio: " + RESET);
-        String[] p = scanner.nextLine().split(" ");
+        System.out.print(WHITE + "Inserisci numeri separati da virgola e spazio: " + RESET);
+        String[] p = scanner.nextLine().split(", ");
         float[] arr = new float[p.length];
         for (int i = 0; i < p.length; i++) arr[i] = Float.parseFloat(p[i]);
         return arr;
@@ -108,13 +110,27 @@ public class Main {
     }
 
     private static String[] readStringArray() {
-        System.out.print(WHITE + "Inserisci parole separate da spazio: " + RESET);
-        return scanner.nextLine().split(" ");
+        System.out.print(WHITE + "Inserisci parole separate da virgola e spazio: " + RESET);
+        return scanner.nextLine().split(", ");
     }
 
-    //══════════════════════════════════════════════════════════════
-    //                   METODI DI SORTING
-    //══════════════════════════════════════════════════════════════
+    //╔════════════════════════════════════════════════════════════╗
+    //║                LETTURA CLASSE GENERICA                     ║
+    //╚════════════════════════════════════════════════════════════╝
+
+    private static Persona[] randArray(int len) {          //Modificare in base alla classe creatasi
+        Persona[] arr = new Persona[len];
+        Random Strings = new Random();
+        Random inter = new Random();
+        for (int i = 0; i < len; i++){
+            arr[i] = new Persona("Persona " + Strings.nextInt(100), inter.nextInt(100));
+        }
+        return arr;
+    }
+
+    //╔════════════════════════════════════════════════════════════╗
+    //║                  METODI DI SORTING                         ║
+    //╚════════════════════════════════════════════════════════════╝
 
     private static void sortInt() {
         System.out.println(PURPLE + BOLD + "\n🔢 MERGE SORT INT" + RESET);
@@ -153,7 +169,9 @@ public class Main {
 
     private static void sortGeneric() {
         System.out.println(PURPLE + BOLD + "\n📦 MERGE SORT GENERICS (T[])" + RESET);
-        String[] arr = readStringArray();
+        System.out.println(TEAL + "Iserisci la quanto lungo deve essere l'array: " + RESET);
+        int len = scanner.nextInt();
+        Persona[] arr = randArray(len);
         mergeSort(arr);
         System.out.println(GREEN + "Risultato: " + Arrays.toString(arr) + RESET);
     }
@@ -169,9 +187,9 @@ public class Main {
         System.out.println(GREEN + "Risultato: " + list + RESET);
     }
 
-    //══════════════════════════════════════════════════════════════
-    //                 TUTTE LE VERSIONI DI MERGE SORT
-    //══════════════════════════════════════════════════════════════
+    //╔════════════════════════════════════════════════════════════╗
+    //║                TUTTE LE VERSIONI DI MERGE SORT             ║
+    //╚════════════════════════════════════════════════════════════╝
 
     // INT
     public static void mergeSort(int[] arr) {
@@ -193,7 +211,9 @@ public class Main {
         while (j < R.length) arr[k++] = R[j++];
     }
 
+
     // DOUBLE
+
     public static void mergeSort(double[] arr) {
         if (arr.length <= 1) return;
         int mid = arr.length / 2;
@@ -266,8 +286,7 @@ public class Main {
         mergeSort(right);
         merge(arr, left, right);
     }
-    private static <T extends Comparable<? super T>>
-    void merge(T[] arr, T[] L, T[] R) {
+    private static <T extends Comparable<? super T>> void merge(T[] arr, T[] L, T[] R) {
         int i = 0, j = 0, k = 0;
         while (i < L.length && j < R.length)
             arr[k++] = (L[i].compareTo(R[j]) <= 0) ? L[i++] : R[j++];
