@@ -43,7 +43,7 @@ Esercizi e progetti che implementano alcune strutture dati in Java, sfruttando i
 Esercitazioni date per casa dai professori.
 
 ### Progetti inclusi
-#### **NomeProgetto1OrderedList**
+#### **OrderedList**
 - **Descrizione breve:** Realizzazione di una lista ordinata.
 
 ---
