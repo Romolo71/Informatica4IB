@@ -1,4 +1,16 @@
+.name{
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    color: rgb(86, 86, 86);
+    font-size: 0.75cm;
+}
+.pfp{
+    justify-content: left; 
+    border-color: rgb(192, 192, 192); 
+    border-style: solid; 
+    margin-right: 10px;
+}
+
 .title{
-    border-bottom: 4px;
-    border-color: grey;
+    border-bottom: 3px solid #565656;
 }
