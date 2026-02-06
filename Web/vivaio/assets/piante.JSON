@@ -1,0 +1,21 @@
+{
+  "elencoAlberi": [
+    {
+      "nome": "Acero campestre",
+      "descrizione": "L'acero campestre è un albero deciduo che si adatta bene a vari tipi di terreno...",
+      "fileImg": "pag2A-1.bmp"
+    },
+    {
+      "nome": "Salice piangente",
+      "descrizione": "Albero ornamentale elegante e scenografico...",
+      "fileImg": "pag2A-2.jpg"
+    }
+  ],
+  "elencoArbusti": [
+    {
+      "nome": "Barba di Giove",
+      "descrizione": "Arbusto resistente e ornamentale...",
+      "fileImg": "pag2B-1.jpg"
+    }
+  ]
+}

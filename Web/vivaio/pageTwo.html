@@ -1,0 +1,64 @@
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/style.css">
+    <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
+    <title>La grande sequoia</title>
+</head>
+<body>
+
+    <header style="justify-content: center;">
+        <div class="titolo-vivaio">ALBERI E ARBUSTI</div>
+    </header>
+
+    <nav>
+        <button style="width: 600px;"><a href="index.html">Home page</a></button>
+    </nav>
+
+    <div class="main-content">
+        <div class="scroll-box">
+            <h3 style="text-align: center;">Alberi</h3>
+            <div id="container-alberi"></div>
+        </div>
+
+        <div class="scroll-box">
+            <h3 style="text-align: center;">Arbusti</h3>
+            <div id="container-arbusti"></div>
+        </div>
+    </div>
+
+    <footer>Copyright 2026 - ITIS "C. Zuccante"</footer>
+
+    <script src="assets/dati.js"></script>
+
+    <script>
+        function popolaPagina() {
+            // I dati sono già disponibili nella variabile databasePiante
+            const alberi = databasePiante.elencoAlberi;
+            const arbusti = databasePiante.elencoArbusti;
+            
+            // Funzione interna per iniettare l'HTML
+            const scriviInHtml = (lista, idContenitore) => {
+                const container = document.getElementById(idContenitore);
+                lista.forEach(pianta => {
+                    container.innerHTML += `
+                        <div class="plant-entry">
+                            <img src="${pianta.fileImg}" alt="${pianta.nome}">
+                            <div class="plant-text">
+                                <h4>${pianta.nome}</h4>
+                                <p>${pianta.descrizione}</p>
+                            </div>
+                        </div>`;
+                });
+            };
+
+            scriviInHtml(alberi, 'container-alberi');
+            scriviInHtml(arbusti, 'container-arbusti');
+        }
+
+        window.onload = popolaPagina;
+    </script>
+
+</body>
+</html>
