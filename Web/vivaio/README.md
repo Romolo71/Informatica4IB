@@ -14,10 +14,10 @@ Questo progetto consiste nella realizzazione di un mini-sito web dinamico per la
 ---
 
 ## 📚 Indice
-1. [Descrizione del Sito](dDescrizione-del-sito)
-2. [Struttura dei File](#struttura-dei-file)
-3. [Tecnologie e Competenze](#tecnologie-e-competenze)
-4. [Istruzioni per l'Uso](#istruzioni-per-luso)
+1. [Descrizione del Sito](#Descrizione-del-sito)
+2. [Struttura dei File](#Struttura-dei-file)
+3. [Tecnologie e Competenze](#Tecnologie-e-competenze)
+4. [Istruzioni per l'Uso](#Istruzioni-per-luso)
 
 ---
 
@@ -25,7 +25,7 @@ Questo progetto consiste nella realizzazione di un mini-sito web dinamico per la
 Il sito è composto da tre sezioni principali:
 * **Home Page (`index.html`):** Vetrina principale con navigazione verso le categorie.
 * **Piante da Interno & Alberi:** Pagine statiche e dinamiche che mostrano le specie botaniche con descrizioni dettagliate.
-* **Sezione Bonsai:** Una pagina avanzata che comunica con un server esterno per il recupero dei dati in tempo reale.
+* **Sezione Bonsai:** Una pagina che comunica con un server esterno (gestito dal Professore) per il recupero dei dati in tempo reale.
 
 ---
 
@@ -42,7 +42,7 @@ Analizzando i file di questo progetto, è possibile approfondire i seguenti conc
 
 1.  **Layout Moderno:** Utilizzo dei CSS per creare card e box con scorrimento (`overflow-y`).
 2.  **Manipolazione del DOM:** Come JavaScript può "iniettare" contenuti HTML all'interno di contenitori vuoti in base ai dati.
-3.  **Fetch API:** Gestione di richieste asincrone verso server esterni (`http://192.168.4.59:8000`) per caricare dati in formato JSON.
+3.  **Fetch API:** Gestione di richieste asincrone verso server esterni (`http://192.168.4.59:8000` in questo caso) per caricare dati in formato JSON.
 4.  **Programmazione Dinamica:** Uso di array di oggetti e cicli (`forEach`) per automatizzare la creazione delle interfacce.
 5.  **Clean Code:** Separazione delle responsabilità tra HTML (struttura), CSS (stile) e JS (logica).
 
