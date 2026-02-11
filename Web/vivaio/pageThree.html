@@ -1,59 +1,83 @@
+<!DOCTYPE html>
 <html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="assets/style.css">
     <link rel="shortcut icon" href="assets/images/favicon.ico" type="image/x-icon">
-    <title>Piante d'interno</title>
+    <title>Bonsai - Vivaio</title>
 </head>
 <body>
 
-    <header style="justify-content: center;">
-        <div class="titolo-vivaio">BONSAI</div>
-    </header>
+<header style="justify-content: center;">
+    <div class="titolo-vivaio">BONSAI</div>
+</header>
 
-    <nav>
-        <button style="width: 600px;"><a href="index.html">Home page</a></button>
-    </nav>
+<nav>
+    <a href="index.html" class="btn-nav">Home page</a>
+</nav>
 
-    <div class="main-content">
-        <div class="scroll-box" style="width: 90%;">
-            <h3 style="text-align: center;">La nostra collezione di Bonsai</h3>
-            <div id="container-bonsai"></div>
-        </div>
+<div class="main-content">
+    <div class="scroll-box">
+        <h3 style="text-align: center;">Bonsai da Interno</h3>
+        <div id="container-bonsaiA"></div>
     </div>
 
-    <footer>
-        Copyright 2026 - ITIS "C. Zuccante"
-    </footer>
+    <div class="scroll-box">
+        <h3 style="text-align: center;">Bonsai da Esterno</h3>
+        <div id="container-bonsaiB"></div>
+    </div>
+</div>
 
-    <script src="assets/dati-bonsai.js"></script>
+<footer>Copyright 2026 - ITIS "C. Zuccante"</footer>
 
-    <script>
-        function popolaBonsai() {
-            const container = document.getElementById('container-bonsai');
-            const lista = databaseBonsai.elencoBonsai;
+<script>
+    const SERVER_URL = "http://192.168.4.59:8000";
 
-            lista.forEach(bonsai => {
-                // Generiamo un'immagine random invece di usare quella fissa del JSON
-                const imgRandom = ottieniImmagineRandom();
+    async function caricaBonsai() {
+        // Richiesta parallela per i due elenchi
+        try {
+            const [resA, resB] = await Promise.all([
+                fetch(`${SERVER_URL}/elencoBonsaiA`),
+                fetch(`${SERVER_URL}/elencoBonsaiB`)
+            ]);
 
-                const div = document.createElement('div');
-                div.className = 'plant-entry';
-                div.innerHTML = `
-                    <img src="${imgRandom}" alt="${bonsai.nome}" style="border-radius: 5px;">
-                    <div class="plant-text">
-                        <h4>${bonsai.nome}</h4>
-                        <p>${bonsai.descrizione}</p>
-                    </div>
-                `;
-                container.appendChild(div);
+            const datiA = await resA.json();
+            const datiB = await resB.json();
+
+            popolaColonna(datiA, 'container-bonsaiA');
+            popolaColonna(datiB, 'container-bonsaiB');
+        } catch (error) {
+            console.error("Errore nel recupero dati dal server:", error);
+            document.querySelectorAll('.scroll-box').forEach(box => {
+                box.innerHTML += "<p style='color:red; text-align:center;'>Impossibile connettersi al server del vivaio.</p>";
             });
         }
+    }
 
-        // Eseguiamo all'avvio
-        window.onload = popolaBonsai;
-    </script>
+    function popolaColonna(lista, idContenitore) {
+        const container = document.getElementById(idContenitore);
+        
+        lista.forEach(bonsai => {
+            const divBonsai = document.createElement('div');
+            divBonsai.className = 'plant-entry';
+
+            // Costruzione percorso immagine dinamico
+            const urlImmagine = `${SERVER_URL}/images/${bonsai.fileImg}`;
+
+            divBonsai.innerHTML = `
+                <img src="${urlImmagine}" alt="${bonsai.nome}" onerror="this.src='placeholder.jpg'">
+                <div class="plant-text">
+                    <h4>${bonsai.nome}</h4>
+                    <p>${bonsai.descrizione}</p>
+                </div>
+            `;
+            container.appendChild(divBonsai);
+        });
+    }
+
+    window.onload = caricaBonsai;
+</script>
 
 </body>
 </html>
