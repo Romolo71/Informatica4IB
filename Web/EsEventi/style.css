@@ -1,0 +1,20 @@
+.esempi{
+    display: flex;
+    
+}
+
+header{
+    text-align: center;
+    font-size: xx-large;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.const{
+    background-color: darkgray;
+    padding: 0 20px 20px 20px;
+    & > header{
+        text-align: center;
+        font-size: large;
+        margin: 15px;
+    }
+}
