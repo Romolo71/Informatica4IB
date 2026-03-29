@@ -1,41 +1,132 @@
-body{
+body {
+    background-color: #f5f5f5;
+    color: #2c3e50;
+    font-family: 'Segoe UI', Roboto, sans-serif;
     margin: 0;
-    background-color: #7a7a7a;
-    
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-header{
+.header {
+    background-color: #b30000; /* Rosso ClasseViva */
+    color: white;
+    padding: 15px 0;
     text-align: center;
-    font-size: 25px;
-    padding: 10px;
+    font-size: 22px;
+    font-weight: bold;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+main {
+    display: flex;
+    flex: 1;
+    padding: 20px;
+    gap: 20px;
+}
+
+.lato-sinistro { width: 320px; }
+.lato-destro { flex: 1; }
+
+.card {
+    background: white;
+    padding: 20px;
+    border-radius: 4px;
+    border-top: 4px solid #b30000;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+h3 { margin: 15px 0 10px 0; font-size: 16px; border-bottom: 1px solid #eee; }
+
+input[type="text"], select {
     width: 100%;
-    vertical-align: middle;
-    background-color: #266d82;
+    padding: 8px;
+    margin: 5px 0;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    box-sizing: border-box;
+}
+
+.radio-group { margin: 10px 0; font-size: 14px; }
+
+.voto-riga {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 4px;
+}
+
+.voto-riga label { font-size: 12px; flex: 1; }
+.voto-riga input { width: 50px; text-align: center; }
+
+.comandi {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+button {
+    padding: 8px;
+    border: none;
+    border-radius: 3px;
     color: white;
-    & > h3{
-        margin: 0;
-    }
+    font-weight: bold;
+    cursor: pointer;
+    font-size: 13px;
 }
 
-main{
-    
+.btn-red { background: #b30000; }
+.btn-dark { background: #2c3e50; }
+button:hover { opacity: 0.9; }
+
+/* Tabella Stile ClasseViva */
+.tabella-container { background: white; border-radius: 4px; overflow: hidden; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+table { width: 100%; border-collapse: collapse; }
+th, td { padding: 10px; border: 1px solid #eee; text-align: center; font-size: 13px; }
+th { background-color: #2c3e50; color: white; }
+tr:nth-child(even) { background-color: #fafafa; }
+tr.selected { background-color: #ffebee; border: 1px solid #b30000; }
+
+/* Footer Universale */
+.footer-universale {
+    display: flex;
+    justify-content: space-between; /* Mette i loghi ai lati e il testo al centro */
+    align-items: center;
+    padding: 15px 30px; /* 30px di margine dagli estremi laterali */
+    font-size: 14px;
+    color: inherit;
+    border-top: 1px solid rgba(75, 72, 72, 0.548);
+    margin-top: auto;
+    width: 100%;
+    box-sizing: border-box;
 }
 
-.scelte{
-    background-color: #89ebb8;
-    border-radius: 10px;    
-    width: 30%;
+.footer-testo {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.footer-universale a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-universale a:hover {
+    color: #961114;
+    transform: scale(1.3); /* Leggero zoom */
+}
+
+.footer-logo {
+    width: 40px; /* Grandezza adatta al footer */
     height: auto;
+    transition: filter 0.3s ease, transform 0.3s ease;
+    /* Rende il logo nero/grigio di base (se necessario effetto opposto togliere questa riga) */
+    filter: grayscale(100%) brightness(0); 
 }
 
-footer{
-    text-align: start;
-    font-size: 25px;
-    padding: 10px;
-    width: 100%;
-    vertical-align: middle;
-    background-color: #266d82;
-    position:fixed;
-    bottom: 0;
-    color: white;
+/* Quando passi il mouse sopra il footer i loghi tornano colorati */
+.footer-universale:hover .footer-logo {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.5); /* Leggero zoom */
 }

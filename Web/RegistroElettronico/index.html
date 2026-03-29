@@ -1,22 +1,71 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Registro Elettronico</title>
+    <title>Registro Elettronico - Riccardo Tonini</title>
+    <link rel="icon" href="favicon.ico">
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header> <h3>Registro Elettronico</h3></header>
+
+    <div class="header">Registro Elettronico</div>
+
     <main>
-        <section class="scelte">
-            Prova
+        <section class="lato-sinistro">
+            <div class="card">
+                <h3>Anagrafica</h3>
+                <input type="text" id="cognome" placeholder="Cognome">
+                <input type="text" id="nome" placeholder="Nome">
+                
+                <div class="radio-group">
+                    <span>Sesso:</span>
+                    <label><input type="radio" name="sesso" value="M" checked> M</label>
+                    <label><input type="radio" name="sesso" value="F"> F</label>
+                </div>
+
+                <h3>Voti Materie</h3>
+                <div id="voti-form">
+                    </div>
+
+                <div class="comandi">
+                    <button id="btn-inserisci" class="btn-red">Inserisci</button>
+                    <button id="btn-modifica" class="btn-dark">Modifica</button>
+                    <button id="btn-rimuovi" class="btn-dark">Rimuovi</button>
+                    <button id="btn-ordina" class="btn-dark">Ordina</button>
+                </div>
+
+                <div class="media-box">
+                    <h3>Media Classe</h3>
+                    <select id="sel-materia"></select>
+                    <div id="res-media">Media: --</div>
+                </div>
+            </div>
         </section>
 
+        <section class="lato-destro">
+            <div class="tabella-container">
+                <table id="tabella-voti">
+                    <thead>
+                        <tr id="head-row">
+                            <th>Studente</th>
+                            <th>Sesso</th>
+                        </tr>
+                    </thead>
+                    <tbody id="body-tabella"></tbody>
+                </table>
+            </div>
+        </section>
     </main>
-    
-    <footer>
-        Copyright 2026 - ITIS "C. Zuccante"
+
+    <footer class="footer-universale">
+        <img src="rtonini.ico" alt="Logo" class="footer-logo">
+        <div class="footer-testo">
+             11/03/2026 Riccardo Tonini - Trovi altri miei progetti 
+            <a href="https://rtonini.it" target="_blank">QUI</a>
+        </div>
+        <img src="rtonini.ico" alt="Logo" class="footer-logo">
     </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
