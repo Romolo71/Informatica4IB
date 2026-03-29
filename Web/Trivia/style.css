@@ -1,38 +1,142 @@
-@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,100..700;1,100..700&display=swap');
-
-body{
+body {
     background-color: #282828;
+    color: #ebebeb;
+    font-family: sans-serif;
     margin: 0;
-    
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
-.headerContainer{
-    align-content: center;
-    text-align: center;
-    height: 60px;
-    font-family: "Josefin Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-size: 40px;
+.header {
     background-color: #474973;
-    color: #ebebeb;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 26px;
+    font-weight: bold;
 }
 
-main{
-
-    text-align: center;
-    justify-items: center;
+main {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
-.cat{
-    margin-top: 20px;
-    align-content: center;
-    text-align: center;
-    width: 30%;
-    height: 30px;
-    font-family: "Josefin Sans", sans-serif;
-    font-optical-sizing: auto;
-    font-style: normal;
-    font-size: 15px;
+
+.container {
     background-color: #474973;
-    color: #ebebeb;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 500px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+}
+
+.campo {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+label {
+    display: block;
+    margin-bottom: 5px;
+    font-size: 14px;
+}
+
+select, input, button {
+    padding: 12px;
+    border-radius: 5px;
+    border: none;
+    width: 100%;
+    font-size: 16px;
+    box-sizing: border-box;
+}
+
+button {
+    background-color: #ebebeb;
+    color: #282828;
+    font-weight: bold;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.info-quiz {
+    display: flex;
+    justify-content: space-between;
+    font-style: italic;
+    font-size: 14px;
+    margin-bottom: 15px;
+    color: #d1d1d1;
+}
+
+#testo {
+    font-size: 18px;
+    margin-bottom: 20px;
+    text-align: left;
+    line-height: 1.4;
+}
+
+/* Allineamento Radio Button e Testo */
+.answer {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 12px;
+    margin: 8px 0;
+    border-radius: 5px;
+    cursor: pointer;
+    text-align: left;
+}
+
+.answer input {
+    width: auto;
+    margin: 0 12px 0 0;
+}
+
+.corretta { background-color: #2e7d32 !important; }
+.sbagliata { background-color: #c62828 !important; }
+.nascosto { display: none; }
+
+/* Footer Universale */
+.footer-universale {
+    display: flex;
+    justify-content: space-between; /* Mette i loghi ai lati e il testo al centro */
+    align-items: center;
+    padding: 15px 30px; /* 30px di margine dagli estremi laterali */
+    font-size: 14px;
+    color: inherit;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    margin-top: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-testo {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.footer-universale a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-universale a:hover {
+    color: #961114;
+    transform: scale(1.3); /* Leggero zoom */
+}
+
+.footer-logo {
+    width: 40px; /* Grandezza adatta al footer */
+    height: auto;
+    transition: filter 0.3s ease, transform 0.3s ease;
+    /* Rende il logo nero/grigio di base (se necessario effetto opposto togliere questa riga) */
+    filter: grayscale(100%) brightness(0); 
+}
+
+/* Quando passi il mouse sopra il footer i loghi tornano colorati */
+.footer-universale:hover .footer-logo {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.5); /* Leggero zoom */
 }
