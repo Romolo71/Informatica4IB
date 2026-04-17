@@ -1,0 +1,100 @@
+/* Importazione font simile a quello usato nel design moderno */
+@import url('https://googleapis.com');
+
+body {
+    background-color: #0a0a0a; /* Nero profondo tipico del portfolio */
+    color: #ffffff;
+    font-family: 'Inter', -apple-system, sans-serif;
+    margin: 0;
+    padding: 40px;
+    line-height: 1.6;
+}
+
+.title {
+    display: flex;
+    justify-content: flex-start; /* Allineamento a sinistra, più editoriale */
+    align-items: center;
+
+    margin-bottom: 40px;
+    padding: 0;
+
+    background-color: transparent; /* Rimosso il box pesante */
+    border: none;
+    
+    font-weight: 700;
+    font-size: 3rem; /* Tipografia bold e grande */
+    letter-spacing: -2px; /* Carattere più compresso e moderno */
+    color: #ffffff;
+    text-transform: uppercase;
+}
+
+.text_section {
+    display: flex;
+    flex-direction: column;
+    margin: 0 0 30px 0;
+    padding: 30px;
+    min-height: 300px;
+
+    background-color: #141414; /* Grigio scurissimo per profondità */
+    border: 1px solid #252525; /* Bordo sottile e quasi invisibile */
+    border-radius: 4px; /* Angoli meno arrotondati, più tecnico */
+
+    font-size: 1.1rem;
+    color: #a0a0a0;
+}
+
+.text_section textarea {
+    width: 100%;
+    height: 100%;
+    min-height: 350px;
+    resize: none;
+    padding: 20px;
+    border: 1px solid #333;
+    border-radius: 4px;
+    background-color: #000000;
+    color: #ffffff;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    box-sizing: border-box;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.text_section textarea:focus {
+    border-color: #ffffff; /* Highlight bianco al focus */
+}
+
+.button_section {
+    display: flex;
+    justify-content: flex-end; /* Allineamento a destra */
+    padding: 20px 0;
+    background-color: transparent;
+    border: none;
+}
+
+button {
+    padding: 12px 35px;
+    border: 1px solid #ffffff; /* Outline button style */
+    border-radius: 0; /* Angoli vivi per un look più "high-end" */
+
+    background-color: transparent;
+    color: #ffffff;
+
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+button:hover {
+    background-color: #ffffff;
+    color: #000000;
+    cursor: pointer;
+    transform: translateY(-2px); /* Effetto lift minimale */
+}
+
+button:active {
+    transform: scale(0.98);
+}
