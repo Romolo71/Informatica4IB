@@ -1,7 +1,3 @@
-Certamente, aggiungiamo l'indice a entrambi per renderli speculari al progetto "La Grande Sequoia". Ho rimosso ogni citazione come richiesto.
-
------
-
 # Progetto Registro Elettronico 📝
 
 Sviluppo di una Single Page Application (SPA) per la gestione dinamica dei dati scolastici, focalizzata sulla manipolazione del DOM e la gestione di strutture dati in JavaScript.

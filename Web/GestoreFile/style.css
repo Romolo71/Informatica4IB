@@ -24,7 +24,7 @@ body {
     font-weight: 700;
     font-size: 3rem; /* Tipografia bold e grande */
     letter-spacing: -2px; /* Carattere più compresso e moderno */
-    color: #ffffff;
+    color: #df3f3f;
     text-transform: uppercase;
 }
 
@@ -62,7 +62,7 @@ body {
 }
 
 .text_section textarea:focus {
-    border-color: #ffffff; /* Highlight bianco al focus */
+    border-color: #df3f3f; /* Highlight bianco al focus */
 }
 
 .button_section {
@@ -75,7 +75,7 @@ body {
 
 button {
     padding: 12px 35px;
-    border: 1px solid #ffffff; /* Outline button style */
+    border: 1px solid #df3f3f; /* Outline button style */
     border-radius: 0; /* Angoli vivi per un look più "high-end" */
 
     background-color: transparent;
@@ -89,7 +89,7 @@ button {
 }
 
 button:hover {
-    background-color: #ffffff;
+    background-color: #df3f3f;
     color: #000000;
     cursor: pointer;
     transform: translateY(-2px); /* Effetto lift minimale */
@@ -97,4 +97,47 @@ button:hover {
 
 button:active {
     transform: scale(0.98);
+}
+
+/* Footer Universale */
+.footer-universale {
+    display: flex;
+    justify-content: space-between; /* Mette i loghi ai lati e il testo al centro */
+    align-items: center;
+    padding: 15px 30px; /* 30px di margine dagli estremi laterali */
+    font-size: 14px;
+    color: inherit;
+    border-top: 1px solid rgba(75, 72, 72, 0.548);
+    margin-top: auto;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.footer-testo {
+    flex-grow: 1;
+    text-align: center;
+}
+
+.footer-universale a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.footer-universale a:hover {
+    color: #961114;
+    transform: scale(1.3); /* Leggero zoom */
+}
+
+.footer-logo {
+    width: 40px; /* Grandezza adatta al footer */
+    height: auto;
+    transition: filter 0.3s ease, transform 0.3s ease;
+    /* Rende il logo nero/grigio di base (se necessario effetto opposto togliere questa riga) */
+    filter: grayscale(100%) brightness(0); 
+}
+
+/* Quando passi il mouse sopra il footer i loghi tornano colorati */
+.footer-universale:hover .footer-logo {
+    filter: grayscale(0%) brightness(1);
+    transform: scale(1.5); /* Leggero zoom */
 }
