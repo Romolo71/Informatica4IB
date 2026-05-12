@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <title>Gestore Magazzino</title>
+    <style>
+        body { font-family: sans-serif; background-color: #2e7d32; margin: 0; padding: 10px; }
+        header { background-color: #fce4ec; padding: 10px; text-align: center; border-radius: 5px; margin-bottom: 10px; }
+        .container { display: flex; gap: 20px; }
+        .panel { background-color: #81c784; padding: 20px; border-radius: 10px; flex: 1; border: 2px solid #388e3c; }
+        
+        /* Lista Articoli */
+        #lista-articoli { background: #e8f5e9; height: 400px; overflow-y: auto; border: 1px solid #ccc; margin-bottom: 15px; }
+        .item { padding: 10px; border-bottom: 1px solid #fff; cursor: pointer; }
+        .item:hover { background-color: #c8e6c9; }
+        .item.selected { background-color: #4caf50; color: white; }
+
+        /* Form */
+        .form-group { margin-bottom: 10px; display: flex; align-items: center; }
+        .form-group label { width: 100px; font-weight: bold; }
+        .form-group input, .form-group select { flex: 1; padding: 5px; border: 1px solid #ccc; }
+
+        /* Bottoni */
+        .btn-bar { background-color: #81d4fa; padding: 10px; border-radius: 5px; display: flex; justify-content: center; gap: 10px; }
+        button { background-color: #b71c1c; color: white; border: none; padding: 8px 15px; cursor: pointer; font-weight: bold; }
+        button:hover { opacity: 0.8; }
+        footer { color: #ccff33; font-weight: bold; margin-top: 15px; }
+    </style>
+</head>
+<body>
+
+<header><h1>Gestore magazzino</h1></header>
+
+<div class="container">
+    <div class="panel">
+        <h3>Lista articoli di magazzino</h3>
+        <div id="lista-articoli"></div>
+        <div class="btn-bar">
+            <button onclick="ordinaLista()">Ordina lista</button>
+            <button onclick="salvaSulServer()">Salva Lista</button>
+        </div>
+    </div>
+
+    <div class="panel">
+        <h3>Dettaglio articolo</h3>
+        <div class="form-group">
+            <label>categoria:</label>
+            <select id="f-cat">
+                <option value="elettrodomestici">elettrodomestici</option>
+                <option value="computer">computer</option>
+                <option value="fotografia">fotografia</option>
+            </select>
+        </div>
+        <div class="form-group"><label>codice:</label><input type="text" id="f-cod"></div>
+        <div class="form-group"><label>descrizione:</label><input type="text" id="f-desc"></div>
+        <div class="form-group"><label>prezzo:</label><input type="number" step="0.01" id="f-prezzo"></div>
+        <div class="form-group"><label>quantità:</label><input type="number" id="f-qta"></div>
+        
+        <div class="btn-bar">
+            <button onclick="inserisciArticolo()">Inserisci</button>
+            <button onclick="modificaArticolo()">Modifica</button>
+            <button onclick="rimuoviArticolo()">Rimuovi</button>
+        </div>
+    </div>
+</div>
+
+<footer>Copyright 2026 - ITIS "C. Zuccante"</footer>
+
+<script>
+    let articoli = [];
+    let indiceSelezionato = -1;
+
+    // Inizializzazione: Carica dati dal server
+    async function caricaDati() {
+        const response = await fetch('/articoli');
+        const data = await response.json();
+        articoli = data.articoli;
+        renderLista();
+    }
+
+    function renderLista() {
+        const container = document.getElementById('lista-articoli');
+        container.innerHTML = '';
+        articoli.forEach((art, index) => {
+            const div = document.createElement('div');
+            div.className = 'item' + (index === indiceSelezionato ? ' selected' : '');
+            div.textContent = `${art.descrizione} - (${art.codice})`;
+            div.onclick = () => selezionaArticolo(index);
+            container.appendChild(div);
+        });
+    }
+
+    function selezionaArticolo(index) {
+        indiceSelezionato = index;
+        const art = articoli[index];
+        document.getElementById('f-cat').value = art.categoria;
+        document.getElementById('f-cod').value = art.codice;
+        document.getElementById('f-desc').value = art.descrizione;
+        document.getElementById('f-prezzo').value = art.prezzo;
+        document.getElementById('f-qta').value = art.quantita;
+        renderLista();
+    }
+
+    function inserisciArticolo() {
+        const nuovo = getFormData();
+        articoli.push(nuovo);
+        renderLista();
+    }
+
+    function modificaArticolo() {
+        if (indiceSelezionato > -1) {
+            articoli[indiceSelezionato] = getFormData();
+            renderLista();
+        }
+    }
+
+    function rimuoviArticolo() {
+        if (indiceSelezionato > -1) {
+            articoli.splice(indiceSelezionato, 1);
+            indiceSelezionato = -1;
+            renderLista();
+        }
+    }
+
+    function ordinaLista() {
+        articoli.sort((a, b) => a.descrizione.localeCompare(b.descrizione));
+        renderLista();
+    }
+
+    async function salvaSulServer() {
+        const response = await fetch('/salva', {
+            method: 'POST',
+            headers: {'Content-Type': 'application/json'},
+            body: JSON.stringify({ articoli: articoli })
+        });
+        alert(await response.text());
+    }
+
+    function getFormData() {
+        return {
+            categoria: document.getElementById('f-cat').value,
+            codice: document.getElementById('f-cod').value,
+            descrizione: document.getElementById('f-desc').value,
+            prezzo: parseFloat(document.getElementById('f-prezzo').value),
+            quantita: parseInt(document.getElementById('f-qta').value)
+        };
+    }
+
+    caricaDati();
+</script>
+</body>
+</html>

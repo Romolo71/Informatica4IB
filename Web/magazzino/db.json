@@ -1,0 +1,144 @@
+{
+  "articoli": [
+    {
+      "categoria": "elettrodomestici",
+      "codice": "EL001",
+      "descrizione": "Frigorifero combinato No Frost",
+      "prezzo": 699.99,
+      "quantita": 12
+    },
+    {
+      "categoria": "computer",
+      "codice": "PC001",
+      "descrizione": "Laptop 15 pollici Intel i7 16GB RAM",
+      "prezzo": 1199.99,
+      "quantita": 8
+    },
+    {
+      "categoria": "fotografia",
+      "codice": "FT001",
+      "descrizione": "Fotocamera reflex 24MP con obiettivo kit",
+      "prezzo": 849.5,
+      "quantita": 5
+    },
+    {
+      "categoria": "elettrodomestici",
+      "codice": "EL002",
+      "descrizione": "Lavatrice 8kg classe A+++",
+      "prezzo": 499.0,
+      "quantita": 10
+    },
+    {
+      "categoria": "computer",
+      "codice": "PC002",
+      "descrizione": "Monitor 27 pollici 4K UHD",
+      "prezzo": 329.99,
+      "quantita": 15
+    },
+    {
+      "categoria": "fotografia",
+      "codice": "FT002",
+      "descrizione": "Obiettivo 50mm f/1.8",
+      "prezzo": 199.99,
+      "quantita": 20
+    },
+    {
+      "categoria": "elettrodomestici",
+      "codice": "EL003",
+      "descrizione": "Microonde 20L digitale",
+      "prezzo": 89.99,
+      "quantita": 25
+    },
+    {
+      "categoria": "computer",
+      "codice": "PC003",
+      "descrizione": "Tastiera meccanica RGB",
+      "prezzo": 129.99,
+      "quantita": 30
+    },
+    {
+      "categoria": "fotografia",
+      "codice": "FT003",
+      "descrizione": "Treppiede in alluminio regolabile",
+      "prezzo": 59.9,
+      "quantita": 18
+    },
+    {
+      "categoria": "elettrodomestici",
+      "codice": "EL004",
+      "descrizione": "Aspirapolvere senza fili",
+      "prezzo": 249.99,
+      "quantita": 14
+    },
+    {
+      "categoria": "computer",
+      "codice": "PC004",
+      "descrizione": "Mouse wireless ergonomico",
+      "prezzo": 39.99,
+      "quantita": 40
+    },
+    {
+      "categoria": "fotografia",
+      "codice": "FT004",
+      "descrizione": "Scheda memoria SD 128GB",
+      "prezzo": 29.99,
+      "quantita": 50
+    },
+    {
+      "categoria": "elettrodomestici",
+      "codice": "EL005",
+      "descrizione": "Forno elettrico ventilato",
+      "prezzo": 379.99,
+      "quantita": 7
+    },
+    {
+      "categoria": "computer",
+      "codice": "PC005",
+      "descrizione": "SSD 1TB NVMe",
+      "prezzo": 149.99,
+      "quantita": 22
+    },
+    {
+      "categoria": "fotografia",
+      "codice": "FT005",
+      "descrizione": "Zaino fotografico impermeabile",
+      "prezzo": 79.99,
+      "quantita": 16
+    },
+    {
+      "categoria": "elettrodomestici",
+      "codice": "EL006",
+      "descrizione": "Macchina da caffè automatica",
+      "prezzo": 299.99,
+      "quantita": 9
+    },
+    {
+      "categoria": "computer",
+      "codice": "PC006",
+      "descrizione": "Webcam Full HD con microfono",
+      "prezzo": 69.99,
+      "quantita": 28
+    },
+    {
+      "categoria": "fotografia",
+      "codice": "FT006",
+      "descrizione": "Flash esterno TTL",
+      "prezzo": 149.0,
+      "quantita": 11
+    },
+    {
+      "categoria": "elettrodomestici",
+      "codice": "EL007",
+      "descrizione": "Lavastoviglie 12 coperti",
+      "prezzo": 549.99,
+      "quantita": 6
+    },
+    {
+      "categoria": "computer",
+      "codice": "PC007",
+      "descrizione": "Stampante multifunzione WiFi",
+      "prezzo": 199.99,
+      "quantita": 13
+    }
+  ]
+}
