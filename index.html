@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Progetti Informatica 4IB</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+    <style>
+        :root {
+            --bg: #050505; 
+            --accent: #ff0000; 
+            --text-main: #ffffff;
+            --text-dim: #888888;
+            --card-bg: #0a0a0a; /* Sfondo card scuro */
+            --border: #1a1a1a; /* Bordo sottile e scuro */
+            --glow: rgba(255, 0, 0, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: var(--bg);
+            /* Pattern a puntini discreto sullo sfondo */
+            background-image: radial-gradient(#111 1px, transparent 1px);
+            background-size: 25px 25px;
+            color: var(--text-main);
+            font-family: 'Inter', sans-serif;
+            min-height: 100vh;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 80px 24px;
+        }
+
+        header {
+            margin-bottom: 80px;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent);
+        }
+
+        .label {
+            color: var(--accent);
+            text-transform: uppercase;
+            font-size: 14px;
+            letter-spacing: 5px;
+            font-weight: 600;
+            margin-bottom: 8px;
+            display: block;
+        }
+
+        h1 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(3rem, 8vw, 6rem);
+            line-height: 0.9;
+            margin-bottom: 16px;
+            text-transform: uppercase;
+        }
+
+        h1 span {
+            color: var(--accent);
+            text-shadow: 0 0 15px rgba(255, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 18px;
+            color: var(--text-dim);
+            max-width: 600px;
+            font-weight: 300;
+            line-height: 1.6;
+        }
+
+        /* Griglia Progetti */
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .project-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Effetto Hover: Unione di pulizia */
+        .project-card:hover {
+            border-color: var(--accent);
+            transform: translateY(-5px);
+            background: #0e0e0e;
+            box-shadow: 0 10px 30px -5px var(--glow);
+        }
+
+        .project-card h3 {
+            color: var(--text-main);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+        }
+
+        /* Titolo secondario massiccio */
+        .project-card .tag {
+            font-family: 'Bebas Neue', cursive;
+            color: var(--accent);
+            font-size: 24px;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .project-card p {
+            color: var(--text-dim);
+            font-size: 15px;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            flex-grow: 1;
+        }
+
+        /* Link con Freccia SVG */
+        .view-link {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            color: var(--accent);
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .view-link svg {
+            width: 18px;
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover .view-link svg {
+            transform: translateX(5px);
+        }
+
+        footer {
+            margin-top: 100px;
+            text-align: center;
+            color: #333;
+            font-size: 12px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+            padding-bottom: 40px;
+        }
+
+        @media (max-width: 768px) {
+            .container { padding: 50px 20px; }
+            h1 { font-size: 3rem; }
+            .project-card { padding: 25px; }
+        }
+    </style>
+</head>
+<body>
+
+    <main class="container">
+        <header>
+            <span class="label">Informatica 4IB</span>
+            <h1>Progetti <span>Web</span></h1>
+            <p class="subtitle">Sviluppo front-end, interfacce dinamiche e logica JavaScript. Benvenuti nel mio archivio.</p>
+        </header>
+
+        <div class="grid">
+            
+            <a href="Web/magazzino/index.html" class="project-card">
+                <div>
+                    <span class="tag">BACK-END LOGIC</span>
+                    <h3>Magazzino</h3>
+                    <p>Applicazione per la gestione dinamica dell'inventario con logiche di carico e scarico merci.</p>
+                </div>
+                <div class="view-link">
+                    Esplora <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
+            </a>
+
+            <a href="Web/Trivia/index.html" class="project-card">
+                <div>
+                    <span class="tag">GAME DEV</span>
+                    <h3>Trivia Game</h3>
+                    <p>Web app interattiva per quiz gaming con recupero dati e gestione del punteggio.</p>
+                </div>
+                <div class="view-link">
+                    Esplora <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
+            </a>
+
+            <a href="Web/RegistroElettronico/index.html" class="project-card">
+                <div>
+                    <span class="tag">SCHOOL TOOLS</span>
+                    <h3>Registro</h3>
+                    <p>Simulazione funzionale di un registro scolastico digitale per voti e presenze.</p>
+                </div>
+                <div class="view-link">
+                    Esplora <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
+            </a>
+
+            <a href="Web/GestoreFile/index.html" class="project-card">
+                <div>
+                    <span class="tag">SYSTEM UTILITY</span>
+                    <h3>Gestore File</h3>
+                    <p>Tool web per l'organizzazione e la visualizzazione di strutture di file e cartelle.</p>
+                </div>
+                <div class="view-link">
+                    Esplora <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
+            </a>
+
+            <a href="Web/EsEventi/index.html" class="project-card">
+                <div>
+                    <span class="tag">DOM MANIPULATION</span>
+                    <h3>Eventi JS</h3>
+                    <p>Esercitazione avanzata sulla manipolazione del DOM tramite trigger e listener.</p>
+                </div>
+                <div class="view-link">
+                    Esplora <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
+            </a>
+
+            <a href="Web/vivaio/index.html" class="project-card">
+                <div>
+                    <span class="tag">E-COMMERCE MOCKUP</span>
+                    <h3>Vivaio</h3>
+                    <p>Interfaccia catalogo dedicata alla gestione e presentazione di prodotti botanici.</p>
+                </div>
+                <div class="view-link">
+                    Esplora <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
+            </a>
+
+            <a href="Web/curriculum/index.html" class="project-card">
+                <div>
+                    <span class="tag">RESUME / BIO</span>
+                    <h3>Curriculum</h3>
+                    <p>Il mio profilo professionale riassunto e strutturato in una singola pagina web.</p>
+                </div>
+                <div class="view-link">
+                    Esplora <svg fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
+                </div>
+            </a>
+
+        </div>
+
+        <footer>
+            Riccardo Tonini &copy; 2025/2026 - Classe 4IB - ITIS C. ZUCCANTE
+        </footer>
+    </main>
+
+</body>
+</html>
